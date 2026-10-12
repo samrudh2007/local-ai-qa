@@ -1,5 +1,8 @@
 from ollama import chat
 
+with open("notes.txt", "r") as file:
+    document = file.read()
+
 while True:
     question = input("You: ")
 
@@ -10,15 +13,15 @@ while True:
     response = chat(
         model="gemma3:1b",
         messages=[
-            {
-                "role": "system",
-                "content": "You are a concise AI assistant. Answer clearly and briefly."
-            },
-            {
-                "role": "user",
-                "content": question
-            }
-        ]
+    {
+        "role": "system",
+        "content": "Answer using the provided document. If the answer is not in the document, say you don't know."
+    },
+    {
+        "role": "user",
+        "content": f"Document:\n{document}\n\nQuestion:\n{question}"
+    }
+]
     )
 
     print("AI:", response.message.content)

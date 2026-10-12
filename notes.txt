@@ -1,0 +1,5 @@
+Python is a programming language.
+Python was created by Guido van Rossum.
+Python is widely used in AI and data science.
+Ollama allows us to run language models locally.
+Gemma 3 1B is the language model used in this project.
